@@ -7,4 +7,6 @@ public interface UserDao {
 	
 	public abstract void addSkills(UserModal userDetails);
 
+	public abstract UserModal findByUserName(String phone);
+
 }

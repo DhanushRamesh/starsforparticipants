@@ -8,6 +8,6 @@ public class DataBaseQueries {
 	
 	public static final String GET_MAX_ID = "select max(id) as id from starsforparticipants.registeration ";
 	
-	
+	public static final String FIND_BY_USERID = "select userid from starsforparticipants.registeration where userid = ? ";
 
 }

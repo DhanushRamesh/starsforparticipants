@@ -2,7 +2,7 @@ package com.starsforparticipants.dao;
 
 import static com.starsforparticipants.dao.DataBaseQueries.ADD_SKILLS;
 import static com.starsforparticipants.dao.DataBaseQueries.ADD_USER;
-import static com.starsforparticipants.dao.DataBaseQueries.GET_MAX_ID;
+import static com.starsforparticipants.dao.DataBaseQueries.*;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -87,6 +87,30 @@ public class UserDaoImpl extends DBUtils implements UserDao{
 			e.printStackTrace();
 		}
 		return id;
+	}
+
+
+	//find a user by phine number
+	@Override
+	public UserModal findByUserName(String username) {
+		
+		UserModal user = null;
+		
+		try(PreparedStatement pstmt = getConnection().prepareStatement(FIND_BY_USERID)){
+			pstmt.setString(1, username);
+			ResultSet rs = pstmt.executeQuery();
+			rs.next();
+			user = new UserModal();
+			user.setUserid(rs.getString("userid"));
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return user;
 	}
 	
 

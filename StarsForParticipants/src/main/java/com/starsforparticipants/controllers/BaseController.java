@@ -61,7 +61,11 @@ public class BaseController {
 		UserModal user = new UserModal();
 		BeanUtils.copyProperties(userDetails, user);
 		UserModal registeredUser = userService.addUser(user);
-		model.addAttribute("registerSuccess", "User Registered Successfully");
+		if (registeredUser != null) {
+			model.addAttribute("registrationStatus", true);
+		} else {
+			model.addAttribute("registrationStatus", false);
+		}
 		model.addAttribute("command", registeredUser);
 		return "registerationSuccess";
 	}

@@ -12,10 +12,12 @@
 
 $(document).ready(function(){
 	$("#chkYes").click(function(){
+
 		$(".skill-chk").attr("disabled",false);
 	});
 	
 	$("#chkNo").click(function(){
+		
 		$(".skill-chk").attr("disabled",true);
 	})
 })
@@ -219,7 +221,12 @@ $(document).ready(function(){
 <body>
 <c:set var="context" value="${pageContext.request.contextPath}"></c:set>
 <jsp:useBean id="now" class="java.util.Date" />
-<h1>${registerSuccess}</h1>
+<c:if test="${registrationStatus  == true}">
+	User registered successfully
+</c:if>
+<c:if test="${registrationStatus  == false}">
+	User already exists
+</c:if>
 
  <form:form method = "POST" action = "${context}/addUser">
  <div class="wrapper">
@@ -228,8 +235,8 @@ $(document).ready(function(){
       </div>
       <span>Are You a Trainer?</span>
                  <div class="inputfield">
-                  Yes <form:radiobutton path="isTrainee" value="No"  />  
-        			No <form:radiobutton path="isTrainee" value="Yes"/> 
+                  Yes <form:radiobutton path="isTrainee" value="No" id="chkYes"  />  
+        			No <form:radiobutton path="isTrainee" value="Yes" id="chkNo"/> 
         		</div>
       <br>
       <br>
