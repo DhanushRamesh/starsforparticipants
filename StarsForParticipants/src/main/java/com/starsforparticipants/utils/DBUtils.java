@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DBUtils {
 
-	private static Connection connection;
+	public static Connection connection;
 
 
 
@@ -15,7 +15,7 @@ public class DBUtils {
 
 		if (connection == null) {
 
-		 connection = DriverManager.getConnection("jdbc:mysql://:3306/starsforparticipants?useSSL=false", "root",
+		 connection = DriverManager.getConnection("jdbc:mysql://:3306/starsforparticipants?allowPublicKeyRetrieval=true&useSSL=false", "root",
 					"rajadhdh22!");
 
 		}

@@ -19,10 +19,6 @@ public class UserServiceImpl implements UserService {
 		else
 			userDetails.setRole("Trainer");
 	
-		userDetails.getUserid();
-		if(userDao.checkduplicate(userDetails)) {
-			return null;
-		}
 		//get the user id from the input parameter
 		//create a method in dao to check for existing records with the user name(parameter username)
 		//if it returns records, it is a duplicate. no need to do anything
