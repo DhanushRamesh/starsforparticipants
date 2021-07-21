@@ -1,10 +1,14 @@
 package com.starsforparticipants.controllers;
 
 import java.sql.SQLException;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +19,9 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.starsforparticipants.models.LoginModal;
 import com.starsforparticipants.models.RegistrationModel;
 import com.starsforparticipants.models.UserModal;
 import com.starsforparticipants.service.UserService;
@@ -36,7 +42,7 @@ public class BaseController {
 	//to load the home page
 	@RequestMapping("/home")
 	public String loadHome(ModelMap model) {
-	      return "welcome";
+		return "welcome";
 }
 	
 	
@@ -64,12 +70,32 @@ public class BaseController {
 		if (registeredUser != null) {
 			model.addAttribute("registrationStatus", true);
 		} else {
-			model.addAttribute("registrationStatus", false);
+			model.addAttribute("registrationStatus",false);
 		}
 		model.addAttribute("command", registeredUser);
 		return "registerationSuccess";
 	}
-	
+	/*
+	 * @RequestMapping(value="/adminlogin",method=RequestMethod.GET) public String
+	 * adminlogin(ModelMap model){ RegistrationModel modal = new
+	 * RegistrationModel(); model.addAttribute("command", new RegistrationModel());
+	 * return "AdminCheck";
+	 * 
+	 * }
+	 * 
+	 * @RequestMapping(method=RequestMethod.POST) public String checkLogin(ModelMap
+	 * model,@ModelAttribute("adminModal") AdminModal adminModal) { if(adminModal
+	 * !=null && adminModal.getUserid() !=null & adminModal.getPassword()!=null) {
+	 * if(adminModal.getUserid().equals("admin1")&&
+	 * adminModal.getPassword().equals("password1")) { model.addAttribute("msg",
+	 * adminModal.getUserid()); return "adminHome"; } else {
+	 * model.addAttribute("error","Invalid Details"); return "AdminCheck"; } } else
+	 * { model.addAttribute("error","Please enter the details"); return
+	 * "AdminCheck"; }
+	 * 
+	 * 
+	 * }
+	 */
 
 }
 

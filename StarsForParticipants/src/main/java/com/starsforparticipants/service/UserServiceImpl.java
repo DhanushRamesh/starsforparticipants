@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.starsforparticipants.dao.UserDao;
+import com.starsforparticipants.models.LoginModal;
 import com.starsforparticipants.models.UserModal;
 
 @Service
@@ -33,6 +34,11 @@ public class UserServiceImpl implements UserService {
 		
 		UserModal dbUserModal = userDao.findByUserName(userDetails.getUserid());
 		return dbUserModal != null;
+	}
+
+	@Override
+	public UserModal getLoginUserData(LoginModal loginData) {
+		return userDao.getLoginUserData(loginData);
 	}
 
 }

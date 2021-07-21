@@ -299,8 +299,16 @@ $(document).ready(function(){
             
             	<form:input path = "password"  type="password" class="input"/>
             </div>
-            
              <div class="inputfield">
+            <form:label path = "availability">Availability</form:label>
+            
+                FN <form:radiobutton path="availability" value="fn"  />  
+        			AN <form:radiobutton path="availability" value="an"/>
+            
+            
+            </div>
+             <div class="inputfield">
+             <form:label path = "skillsets">SkillSets</form:label>
              <form:checkbox class="skill-chk" path="skillsets" value = "Java"/>
              	<form:label path="skillsets">Java</form:label>
              	<form:checkbox class="skill-chk" path="skillsets" value = "C"/>
@@ -313,14 +321,7 @@ $(document).ready(function(){
              	 <form:label path="skillsets">HTML</form:label>
              </div>
              
-            <div class="inputfield">
-            <form:label path = "availability">Availability</form:label>
-            
-                FN <form:radiobutton path="availability" value="fn"  />  
-        			AN <form:radiobutton path="availability" value="an"/>
-            
-            
-            </div>
+           
             <div class="inputfield">
               
                   <input type = "submit" value = "Register" class="btn" />

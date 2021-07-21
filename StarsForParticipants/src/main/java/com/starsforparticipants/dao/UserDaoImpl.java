@@ -11,6 +11,7 @@ import java.sql.Statement;
 
 import org.springframework.stereotype.Repository;
 
+import com.starsforparticipants.models.LoginModal;
 import com.starsforparticipants.models.UserModal;
 import com.starsforparticipants.utils.DBUtils;
 
@@ -90,7 +91,7 @@ public class UserDaoImpl extends DBUtils implements UserDao{
 	}
 
 
-	//find a user by phine number
+	//find a user by userId
 	@Override
 	public UserModal findByUserName(String username) {
 		
@@ -99,9 +100,12 @@ public class UserDaoImpl extends DBUtils implements UserDao{
 		try(PreparedStatement pstmt = getConnection().prepareStatement(FIND_BY_USERID)){
 			pstmt.setString(1, username);
 			ResultSet rs = pstmt.executeQuery();
-			rs.next();
-			user = new UserModal();
-			user.setUserid(rs.getString("userid"));
+			if(rs.next()) {
+				user = new UserModal();
+				user.setUserid(rs.getString("userid"));
+			}
+
+			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -111,6 +115,32 @@ public class UserDaoImpl extends DBUtils implements UserDao{
 		}
 		
 		return user;
+	}
+
+
+	@Override
+	public UserModal getLoginUserData(LoginModal loginData) {
+		
+		UserModal activeUser = null;
+		
+		try(PreparedStatement pstmt = getConnection().prepareStatement(GET_LOGIN_DATA)){
+			pstmt.setString(1, loginData.getUserid());
+			pstmt.setString(2, loginData.getPassword());
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {
+				activeUser = new UserModal();
+				activeUser.setUserid(rs.getString("userid"));
+				activeUser.setRole(rs.getString("Trainer"));
+				activeUser.setFirstName(rs.getString("firstname"));
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return activeUser;
 	}
 	
 

@@ -10,4 +10,5 @@ public class DataBaseQueries {
 	
 	public static final String FIND_BY_USERID = "select userid from starsforparticipants.registeration where userid = ? ";
 
+	public static final String GET_LOGIN_DATA = "select userid,Trainer,firstname from starsforparticipants.registeration where userid = ? and password = ? ";
 }
