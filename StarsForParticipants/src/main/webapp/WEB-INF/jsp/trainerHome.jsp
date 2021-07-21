@@ -7,6 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-TrainerHome
+<p>TrainerHome</p>
+<ul>
+      <li><a href="/TrainerDetails.html">Profile</a></li>
+      <li><a href="/ListOfRequests.html">List of Requests</a></li>
+      <li><a href="/GenerateReport.html">Rate Trainee</a></li>
+      <li><a href="/GenerateReport.html">Notification</a></li>
+      <li><a href="/">Log out</a></li>
+    </ul>
 </body>
 </html>

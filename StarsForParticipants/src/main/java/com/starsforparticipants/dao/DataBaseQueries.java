@@ -10,5 +10,7 @@ public class DataBaseQueries {
 	
 	public static final String FIND_BY_USERID = "select userid from starsforparticipants.registeration where userid = ? ";
 
-	public static final String GET_LOGIN_DATA = "select userid,Trainer,firstname from starsforparticipants.registeration where userid = ? and password = ? ";
+	public static final String GET_LOGIN_DATA = "select userid,Trainer,firstname,id from starsforparticipants.registeration where userid = ? and password = ? ";
+	
+	public static final String ADD_COURSE_REQUEST = "insert into starsforparticipants.raise_request(id,subject,location,timing,weekendclass,modeoflearning)values(?,?,?,?,?,?)";
 }

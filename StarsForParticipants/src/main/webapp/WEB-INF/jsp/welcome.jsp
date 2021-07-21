@@ -399,11 +399,11 @@
 
       <ul class="submenu">
 
-        <li><a href="${context}/login">Trainer Login</a></li>
+        <li><a href="${context}/showlogin">Trainer Login</a></li>
 
-        <li><a href="${context}/login">Trainee Login</a></li>
+        <li><a href="${context}/showlogin">Trainee Login</a></li>
 
-        <li><a href="${context}/login">AdminLogin</a></a></li>
+        <li><a href="${context}/showlogin">AdminLogin</a></a></li>
 
       </ul>
 

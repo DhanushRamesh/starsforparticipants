@@ -11,6 +11,13 @@
 <body>
 <c:set var="context" value="${pageContext.request.contextPath}"></c:set>
 <p>Admin Home Page</p>
+<ul>
+      <li><a href="/TrainerDetails.html">Trainer Details</a></li>
+      <li><a href="/ListOfRequests.html">List of Requests</a></li>
+      <li><a href="/GenerateReport.html">Generate Report</a></li>
+      <li><a href="/GenerateReport.html">Nominated Trainers</a></li>
+      <li><a href="/">Log out</a></li>
+    </ul>
 
 </body>
 </html>

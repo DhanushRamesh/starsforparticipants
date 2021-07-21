@@ -132,6 +132,7 @@ public class UserDaoImpl extends DBUtils implements UserDao{
 				activeUser.setUserid(rs.getString("userid"));
 				activeUser.setRole(rs.getString("Trainer"));
 				activeUser.setFirstName(rs.getString("firstname"));
+				activeUser.setId(rs.getInt("id"));
 			}
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
