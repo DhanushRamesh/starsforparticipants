@@ -32,6 +32,9 @@
 <td>${course.modeOfLearning }</td>
 </tr>
 <tr>
+<th>Suggested Trainers</th>
+</tr>
+<tr>
 <c:forEach items="${trainerList}" var="trainer">
 	<td><input name="selectedTrainer" type="radio" value="${trainer.userId}"/>
 	<td>${trainer.userId }</td>
