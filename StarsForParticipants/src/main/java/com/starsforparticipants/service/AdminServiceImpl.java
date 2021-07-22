@@ -21,18 +21,24 @@ public class AdminServiceImpl implements AdminService{
 	}
 	@Override
 	public List<TrainerModel> getTrainerDetails() {
-		// TODO Auto-generated method stub
+		
 		return adminDao.getTrainerDetails();
 	}
 	@Override
 	public CourseRequestModel getCourseRequestById(int trainerId) {
-		// TODO Auto-generated method stub
+		
 		return adminDao.getCourseRequestById(trainerId);
 	}
 	@Override
 	public List<TrainerModel> getTrainerSuggestions(CourseRequestModel course) {
 		
 		return adminDao.getTrainerSuggestions(course);
+	}
+	
+	@Override
+	public void createCourseRequest(int traineeId, String userid) {
+		
+		 adminDao.createCourseRequest(traineeId, userid);
 	}
 
 }

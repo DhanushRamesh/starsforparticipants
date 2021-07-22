@@ -140,4 +140,21 @@ public class AdminDaoimpl extends DBUtils implements AdminDao {
 		return trainerSuggestions;
 	}
 
+	@Override
+	public void createCourseRequest(int traineeId, String userid) {
+			
+		try(PreparedStatement pstmt = getConnection().prepareStatement(CREATE_REQUEST)){
+			
+			pstmt.setInt(1, traineeId);
+			pstmt.setString(2, userid);
+			pstmt.execute();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 }

@@ -23,4 +23,6 @@ public class DataBaseQueries {
 	public static final String GET_COURSE_DATA = "select id,subject,location,timing,weekendclass,modeoflearning from starsforparticipants.raise_request where id = ? ";
 
 	public static final String GET_TRAINER_SUGGESTIONS = "select r.firstname as firstname, r.userid as userid from registeration r join skillset s on r.id = s.trainerid where r.location = ? and r.availability = ? and s.skillset = ?";
+	
+	public static final String CREATE_REQUEST = "insert into admin_request(requestId, trainerId) values((select recordId from raise_request where id = ? ),(select id from registeration where userid = ?))";
 }

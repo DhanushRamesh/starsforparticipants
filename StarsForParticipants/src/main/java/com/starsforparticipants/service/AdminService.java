@@ -15,4 +15,6 @@ public interface AdminService {
 
 	public abstract List<TrainerModel> getTrainerSuggestions(CourseRequestModel course);
 
+	public abstract void createCourseRequest(int traineeId, String userid);
+
 }

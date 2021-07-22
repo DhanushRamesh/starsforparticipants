@@ -3,6 +3,8 @@ package com.starsforparticipants.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -42,12 +44,21 @@ public class AdminController {
 		return "trainerDetails";
 	}
 	
-	@RequestMapping("/viewRequest/{trainerId}")
-	public String viewRequest(ModelMap map, @PathVariable String trainerId) {
-		CourseRequestModel course = adminService.getCourseRequestById(Integer.parseInt(trainerId));
+	@RequestMapping("/viewRequest/{traineeId}")
+	public String viewRequest(ModelMap map, @PathVariable String traineeId) {
+		CourseRequestModel course = adminService.getCourseRequestById(Integer.parseInt(traineeId));
 		List<TrainerModel> trainerList = adminService.getTrainerSuggestions(course);
 		map.addAttribute("course",course);
 		map.addAttribute("trainerList",trainerList);
+		map.addAttribute("traineeId",traineeId);
+		return "viewRequest";
+	}
+	
+	@RequestMapping("/createCourseRequest")
+	public String createCourseRequest(HttpServletRequest request, ModelMap map) {
+		int traineeId = Integer.parseInt(request.getParameter("traineeId"));
+		String userid = request.getParameter("selectedTrainer");
+		adminService.createCourseRequest(traineeId,userid);
 		return "viewRequest";
 	}
 }

@@ -15,6 +15,8 @@ public interface AdminDao {
 
 	public abstract List<TrainerModel> getTrainerSuggestions(CourseRequestModel course);
 
+	public abstract void createCourseRequest(int requestId, String userid);
+
 	
 
 }
