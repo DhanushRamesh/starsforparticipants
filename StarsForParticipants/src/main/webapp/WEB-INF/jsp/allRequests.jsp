@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<c:set var="context" value="${pageContext.request.contextPath}"></c:set>
 <table>
 <thead>
 <tr>
@@ -24,7 +24,7 @@
 <tbody>
 <c:forEach var= "course" items="${courseRequests}">
 <tr>
-<td><a href="#">${course.id}</a></td>
+<td><a href="${context}/viewRequest/${course.id}">${course.id}</a></td>
 <td>${course.subject}</td>
 <td>${course.location}</td>
 <td>${course.timing}</td>

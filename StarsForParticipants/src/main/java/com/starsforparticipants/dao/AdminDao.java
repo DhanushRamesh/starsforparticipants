@@ -11,6 +11,10 @@ public interface AdminDao {
 
 	public abstract List<TrainerModel> getTrainerDetails();
 
+	public abstract CourseRequestModel getCourseRequestById(int trainerId);
+
+	public abstract List<TrainerModel> getTrainerSuggestions(CourseRequestModel course);
+
 	
 
 }

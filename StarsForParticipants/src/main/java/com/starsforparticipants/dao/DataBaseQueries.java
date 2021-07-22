@@ -20,6 +20,7 @@ public class DataBaseQueries {
 	
 	public static final String GET_TRAINER_DATA = "select * from registeration r join skillset s on r.id = s.trainerid where r.id";
 	
-	public static final String GET_SKILLS_BY_ID = "";
+	public static final String GET_COURSE_DATA = "select id,subject,location,timing,weekendclass,modeoflearning from starsforparticipants.raise_request where id = ? ";
 
+	public static final String GET_TRAINER_SUGGESTIONS = "select r.firstname as firstname, r.userid as userid from registeration r join skillset s on r.id = s.trainerid where r.location = ? and r.availability = ? and s.skillset = ?";
 }

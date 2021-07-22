@@ -15,6 +15,13 @@ public class TrainerModel {
 	private String location;
 	private String skillset;
 	private String availability;
+	private String userId;
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 	public int getId() {
 		return id;
 	}

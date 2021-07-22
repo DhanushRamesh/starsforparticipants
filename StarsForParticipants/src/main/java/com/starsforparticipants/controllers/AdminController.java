@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.starsforparticipants.models.CourseRequestModel;
@@ -39,5 +40,14 @@ public class AdminController {
 		trainerDetails = adminService.getTrainerDetails();
 		model.addAttribute("trainerDetails",trainerDetails);
 		return "trainerDetails";
+	}
+	
+	@RequestMapping("/viewRequest/{trainerId}")
+	public String viewRequest(ModelMap map, @PathVariable String trainerId) {
+		CourseRequestModel course = adminService.getCourseRequestById(Integer.parseInt(trainerId));
+		List<TrainerModel> trainerList = adminService.getTrainerSuggestions(course);
+		map.addAttribute("course",course);
+		map.addAttribute("trainerList",trainerList);
+		return "viewRequest";
 	}
 }

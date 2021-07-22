@@ -11,4 +11,8 @@ public interface AdminService {
 
 	public abstract List<TrainerModel> getTrainerDetails();
 
+	public abstract CourseRequestModel getCourseRequestById(int trainerId);
+
+	public abstract List<TrainerModel> getTrainerSuggestions(CourseRequestModel course);
+
 }

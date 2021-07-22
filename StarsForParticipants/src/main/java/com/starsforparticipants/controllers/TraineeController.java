@@ -33,7 +33,7 @@ public class TraineeController {
 		courses.add("HTML");
 		courseRequest.setSubjectList(courses);
 		List<String> locations = new ArrayList<>();
-		locations.add("chennai");
+		locations.add("Chennai");
 		locations.add("Delhi");
 		locations.add("Bombay");
 		courseRequest.setLocationList(locations);

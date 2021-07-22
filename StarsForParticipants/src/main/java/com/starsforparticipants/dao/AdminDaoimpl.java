@@ -1,6 +1,7 @@
 package com.starsforparticipants.dao;
 
 import static com.starsforparticipants.dao.DataBaseQueries.GET_ALL_COURSE_REQUESTS;
+import static com.starsforparticipants.dao.DataBaseQueries.GET_COURSE_DATA;
 import static com.starsforparticipants.dao.DataBaseQueries.*;
 
 import java.sql.PreparedStatement;
@@ -83,6 +84,60 @@ public class AdminDaoimpl extends DBUtils implements AdminDao {
 		}
 				
 		return trainerList;
+	}
+
+	@Override
+	public CourseRequestModel getCourseRequestById(int trainerId) {
+		
+		CourseRequestModel model = new CourseRequestModel();
+		try(PreparedStatement pstmt = getConnection().prepareStatement(GET_COURSE_DATA)){
+			
+			pstmt.setInt(1, trainerId);
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {
+				model.setId(rs.getInt("id"));
+				model.setSubject(rs.getString("subject"));
+				model.setLocation(rs.getString("location"));
+				model.setTiming(rs.getString("timing"));
+				model.setWeekend(rs.getString("weekendclass"));
+				model.setModeOfLearning(rs.getString("modeoflearning"));
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return model;
+	}
+
+	@Override
+	public List<TrainerModel> getTrainerSuggestions(CourseRequestModel course) {
+		
+		List<TrainerModel> trainerSuggestions = new ArrayList<>();
+		
+		try(PreparedStatement pstmt = getConnection().prepareStatement(GET_TRAINER_SUGGESTIONS)){
+			pstmt.setString(1, course.getLocation());
+			pstmt.setString(2, course.getTiming());
+			pstmt.setString(3, course.getSubject());
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				TrainerModel trainer = new TrainerModel();
+				trainer.setFirstname(rs.getString("firstname"));
+				trainer.setUserId(rs.getString("userid"));
+				trainerSuggestions.add(trainer);
+			}
+			
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return trainerSuggestions;
 	}
 
 }
