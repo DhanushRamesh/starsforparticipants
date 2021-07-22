@@ -23,7 +23,7 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
- <table id="trainerDetails">
+ <table id="trainerDetails"  border="2" width="70%" cellpadding="2">
  <thead>
  <tr>
  <th>Trainer Id</th>
