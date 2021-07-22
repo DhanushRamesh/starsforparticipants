@@ -1,5 +1,6 @@
 package com.starsforparticipants.dao;
 
+import static com.starsforparticipants.dao.DataBaseQueries.GET_ALL_COURSE_REQUESTS;
 import static com.starsforparticipants.dao.DataBaseQueries.*;
 
 import java.sql.PreparedStatement;
@@ -12,7 +13,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.starsforparticipants.models.CourseRequestModel;
-import com.starsforparticipants.models.UserModal;
+import com.starsforparticipants.models.TrainerModel;
 import com.starsforparticipants.utils.DBUtils;
 
 @Repository
@@ -51,17 +52,27 @@ public class AdminDaoimpl extends DBUtils implements AdminDao {
 	}
 
 	@Override
-	public List<UserModal> getTrainerDetails() {
+	public List<TrainerModel> getTrainerDetails() {
 		
-		List<UserModal> trainerList = new ArrayList<>();
+		List<TrainerModel> trainerList = new ArrayList<>();
 		
 		
-		try(PreparedStatement pstmt = getConnection().prepareStatement(GET_TRAINER_DATA)){
-			pstmt.setString(1, "Trainer");
+		try(PreparedStatement pstmt = getConnection().prepareStatement(GET_TRAINER_DATA))
+			{
+			
 			ResultSet rs =  pstmt.executeQuery();
 			while(rs.next()) {
-				UserModal trainer = new UserModal();
-				
+				TrainerModel trainer = new TrainerModel();
+				trainer.setFirstname(rs.getString("firstname"));
+				trainer.setLastname(rs.getString("lastname"));
+				trainer.setDob(rs.getDate("dob"));
+				trainer.setGender(rs.getString("gender"));
+				trainer.setLocation(rs.getString("location"));
+				trainer.setPhone(rs.getString("phno"));
+				trainer.setAvailability(rs.getString("availability"));
+				trainer.setId(rs.getInt("id"));
+				trainer.setSkillset(rs.getString("skillset"));
+				trainerList.add(trainer);
 			}
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

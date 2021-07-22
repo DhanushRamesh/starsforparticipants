@@ -9,7 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.starsforparticipants.models.CourseRequestModel;
-import com.starsforparticipants.models.UserModal;
+import com.starsforparticipants.models.TrainerModel;
 import com.starsforparticipants.service.AdminService;
 
 @Controller
@@ -35,7 +35,7 @@ public class AdminController {
 	
 	@RequestMapping("/trainerDetails")
 	public String showTrainerDetails(ModelMap model) {
-		List<UserModal> trainerDetails = new ArrayList<>();
+		List<TrainerModel> trainerDetails = new ArrayList<>();
 		trainerDetails = adminService.getTrainerDetails();
 		model.addAttribute("trainerDetails",trainerDetails);
 		return "trainerDetails";

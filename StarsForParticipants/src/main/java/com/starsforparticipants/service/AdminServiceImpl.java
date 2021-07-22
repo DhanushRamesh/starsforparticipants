@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.starsforparticipants.dao.AdminDao;
 import com.starsforparticipants.models.CourseRequestModel;
-import com.starsforparticipants.models.UserModal;
+import com.starsforparticipants.models.TrainerModel;
 
 @Service
 public class AdminServiceImpl implements AdminService{
@@ -20,7 +20,7 @@ public class AdminServiceImpl implements AdminService{
 		return adminDao.getAllCourseRequests();
 	}
 	@Override
-	public List<UserModal> getTrainerDetails() {
+	public List<TrainerModel> getTrainerDetails() {
 		// TODO Auto-generated method stub
 		return adminDao.getTrainerDetails();
 	}

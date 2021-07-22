@@ -13,7 +13,7 @@ public class TrainerModel {
 	private String gender;
 	private String phone;
 	private String location;
-	private String [] skillsets;
+	private String skillset;
 	private String availability;
 	public int getId() {
 		return id;
@@ -57,11 +57,11 @@ public class TrainerModel {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	public String[] getSkillsets() {
-		return skillsets;
+	public String getSkillset() {
+		return skillset;
 	}
-	public void setSkillsets(String[] skillsets) {
-		this.skillsets = skillsets;
+	public void setSkillset(String skillset) {
+		this.skillset = skillset;
 	}
 	public String getAvailability() {
 		return availability;
