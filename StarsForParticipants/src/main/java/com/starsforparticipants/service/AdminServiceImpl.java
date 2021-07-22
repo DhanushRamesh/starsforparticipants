@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.starsforparticipants.dao.AdminDao;
 import com.starsforparticipants.models.CourseRequestModel;
+import com.starsforparticipants.models.NominationModel;
 import com.starsforparticipants.models.TrainerModel;
 
 @Service
@@ -39,6 +40,11 @@ public class AdminServiceImpl implements AdminService{
 	public void createCourseRequest(int traineeId, String userid) {
 		
 		 adminDao.createCourseRequest(traineeId, userid);
+	}
+	@Override
+	public List<NominationModel> getNominatedUsers() {
+		// TODO Auto-generated method stub
+		return  adminDao.getNominatedUsers();
 	}
 
 }

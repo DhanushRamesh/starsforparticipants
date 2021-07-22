@@ -14,6 +14,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.starsforparticipants.models.CourseRequestModel;
+import com.starsforparticipants.models.NominationModel;
 import com.starsforparticipants.models.TrainerModel;
 import com.starsforparticipants.utils.DBUtils;
 
@@ -155,6 +156,30 @@ public class AdminDaoimpl extends DBUtils implements AdminDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public List<NominationModel> getNominatedUsers() {
+		// TODO Auto-generated method stub
+		List<NominationModel> nominations = new ArrayList<>();
+		try(Statement pstmt = getConnection().createStatement()){
+			ResultSet rs =  pstmt.executeQuery(GET_NOMINATIONS);
+			while(rs.next()) {
+				NominationModel model = new NominationModel();
+				model.setTraineeId(rs.getInt("traineeId"));
+				model.setTrainerId(rs.getInt("trainerId"));
+				model.setTraineename(rs.getString("traineename"));
+				model.setTrainername(rs.getString("trainername"));
+				nominations.add(model);
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return nominations;
 	}
 
 }

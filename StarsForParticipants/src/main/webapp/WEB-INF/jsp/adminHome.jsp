@@ -114,7 +114,7 @@ src: local('Lato Bold'), local('Lato-Bold'), url(http://themes.googleusercontent
       <li><a href="${context}/trainerDetails">Trainer Details</a></li>
       <li><a href="${context}/listRequests">List of Requests</a></li>
       <li><a href="/GenerateReport.html">Generate Report</a></li>
-      <li><a href="/GenerateReport.html">Nominated Trainers</a></li>
+      <li><a href="${context}/showNominatedUsers">Nominated Trainers</a></li>
       <li><a href="/">Log out</a></li>
    </ul>
 </nav>

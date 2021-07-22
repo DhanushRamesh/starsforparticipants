@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.starsforparticipants.models.CourseRequestModel;
+import com.starsforparticipants.models.NominationModel;
 import com.starsforparticipants.models.TrainerModel;
 import com.starsforparticipants.service.AdminService;
 
@@ -61,4 +62,14 @@ public class AdminController {
 		adminService.createCourseRequest(traineeId,userid);
 		return "viewRequest";
 	}
+	
+	@RequestMapping("/showNominatedUsers")
+	public String showNominatedUsers(ModelMap model) {
+		List<NominationModel> nominatedUsers = adminService.getNominatedUsers();
+		model.addAttribute("nominations", nominatedUsers);
+		return "NominatedUsers";
+	}
+	
+	
+	
 }
