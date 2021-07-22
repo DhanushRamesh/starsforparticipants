@@ -132,23 +132,23 @@ a {
   bottom: 10px;
   font-size: 12px;
 }
+
 </style>
 <meta charset="ISO-8859-1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 <c:set var="context" value="${pageContext.request.contextPath}"></c:set>
-
  
-  
 <form:form method = "POST" action = "${context}/login" modelAttribute="loginModal" class="login">
             	<form:input path = "userid" placeholder="UserID"  />
             	
             	<form:input path = "password" placeholder="Password" type="password" />
             	
-            	  <input type = "submit" value = "Login" class="btn" class="login" />
+            
+            	  <button>Login</button>
             	  
-            	  
+            	 
             	 `
 </form:form>
 <p>${loginFailed}</p> 

@@ -24,6 +24,12 @@ public class LoginController {
 		 model.addAttribute("loginModal", new LoginModal());
 	      return "login";
 }
+	@RequestMapping("/traineeHome")
+	public String traineeHome(ModelMap model) {
+		 model.addAttribute("loginModal", new LoginModal());
+	      return "traineeHome";
+}
+	
 	
 	@RequestMapping("/login")
 	public String login(HttpServletRequest request,  ModelMap model, @ModelAttribute("loginModal") LoginModal loginData) {
