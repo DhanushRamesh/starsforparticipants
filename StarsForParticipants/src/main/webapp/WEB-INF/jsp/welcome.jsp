@@ -395,7 +395,7 @@
 
     <li>
 
-      <a href="#">Login</a>
+      <a href="${context}/showlogin">Login</a>
 
       <ul class="submenu">
 
@@ -411,7 +411,7 @@
 
     <li>
 
-      <a href="#">Register</a>
+      <a href="${context}/register">Register</a>
 
       <ul class="submenu">
 
@@ -434,7 +434,7 @@
 
 <section class="hero-section">
   <div class="card-grid">
-    <a class="card" href="${context}/login">
+    <a class="card" href="${context}/showlogin">
       <div class="card__background" style="background-image: url(https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80)">
       </div>
       <div class="card__content">
@@ -442,14 +442,14 @@
         <h3 class="card__heading">Learn to code</h3>
       </div>
     </a>
-    <a class="card" href="${context}/login">
+    <a class="card" href="${context}/showlogin">
       <div class="card__background" style="background-image: url(https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=702&q=80)"></div>
       <div class="card__content">
         <p class="card__category">Education</p>
         <h3 class="card__heading">Learn Data Science</h3>
       </div>
     </a>
-    <a class="card" href="${context}/login">
+    <a class="card" href="${context}/showlogin">
       <div class="card__background"
         style="background-image: url(https://images.unsplash.com/photo-1616161560417-66d4db5892ec?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDF8fGFydGlmaWNpYWwlMjBpbnRlbGxpZ2VuY2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60)"></div>
       <div class="card__content">

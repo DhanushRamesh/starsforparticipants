@@ -6,4 +6,6 @@ public interface TraineeService {
 	
 	public abstract void addCourseRequest(CourseRequestModel courseRequest);
 
+	public abstract boolean hasCourseRequested(CourseRequestModel courseModel);
+
 }

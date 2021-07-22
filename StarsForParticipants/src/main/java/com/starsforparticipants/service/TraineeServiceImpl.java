@@ -17,5 +17,10 @@ public class TraineeServiceImpl implements TraineeService {
 		// TODO Auto-generated method stub
 		traineeDao.addCourseRequest(courseRequest);
 	}
+	@Override
+	public boolean hasCourseRequested(CourseRequestModel courseModel) {
+		// TODO Auto-generated method stub
+		return traineeDao.hasCourseRequested(courseModel);
+	}
 
 }

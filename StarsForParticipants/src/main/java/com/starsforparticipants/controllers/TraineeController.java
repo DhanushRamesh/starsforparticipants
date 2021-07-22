@@ -45,12 +45,16 @@ public class TraineeController {
 	
 	@RequestMapping("/createRequest")
 	public String createRequest(HttpServletRequest request,   ModelMap  model, @ModelAttribute("requestModel") CourseRequestModel courseModel) {
-		
+		String forward = "raiseRequest";
 		UserModal activeUser = (UserModal) request.getSession().getAttribute("activeUser");
 		courseModel.setId(activeUser.getId());
-		traineeService.addCourseRequest(courseModel);
-		model.addAttribute("requestModal",courseModel );
-		return "raiseRequest";
+		if (traineeService.hasCourseRequested(courseModel)) {
+			forward = "requestErrorPage";
+		} else {
+			traineeService.addCourseRequest(courseModel);
+			model.addAttribute("requestModal", courseModel);
+		}
+		return forward;
 	}
 
 }
