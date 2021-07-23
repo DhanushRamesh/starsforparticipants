@@ -1,5 +1,7 @@
 package com.starsforparticipants.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +35,27 @@ public class TrainerController {
 		trainerService.nominate(userModal.getId());
 		return "traineeRequests";
 	}
+	
+	@RequestMapping("/confirmRequest")
+	public String confirmRequest(ModelMap model, HttpServletRequest request) {
+		
+		int traineeId = Integer.parseInt(request.getParameter("traineeId"));
+		int trainerId = Integer.parseInt(request.getParameter("trainerId"));
+		trainerService.confirmRequest(trainerId,traineeId);
+		return "adminHome";
+	}
+	
+	
+	@RequestMapping("/notifyTrainer")
+	public String notifyTrainer(ModelMap model, HttpServletRequest request) {
+		
+		UserModal activeUser = (UserModal) request.getSession().getAttribute("activeUser");
+		List<UserModal> trainees = trainerService.getAssignedTrainees(activeUser);
+		model.addAttribute("trainees", trainees);
+		return "notification";
+		
+	}
+	
+	
 
 }

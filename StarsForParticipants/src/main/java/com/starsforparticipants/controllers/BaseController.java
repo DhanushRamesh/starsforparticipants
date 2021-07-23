@@ -75,6 +75,20 @@ public class BaseController {
 		model.addAttribute("command", registeredUser);
 		return "registerationSuccess";
 	}
+	
+	
+	@RequestMapping("/logout")
+	public String logout(HttpServletRequest request) {
+		
+		request.getSession().invalidate();
+		return "welcome";
+	}
+	
+	@RequestMapping("/aboutUs")
+	public String loadAbout(ModelMap model) {
+		return "About Us";
+}
+	
 	/*
 	 * @RequestMapping(value="/adminlogin",method=RequestMethod.GET) public String
 	 * adminlogin(ModelMap model){ RegistrationModel modal = new

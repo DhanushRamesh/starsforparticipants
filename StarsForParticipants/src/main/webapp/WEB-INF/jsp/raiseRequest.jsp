@@ -181,7 +181,7 @@ body {
 					<form:label path="subject">Subject</form:label>
 					<form:select path="subject" >
 					<option value="" label="Select The Subject"></option>
-					<option value="Select" label="Select The City"></option>
+					
 						<form:options items="${subjectList}" />
 					</form:select>
 				</div>
@@ -222,7 +222,7 @@ body {
 		</div>
 
 	</form:form>
-
 <a href="${context}/traineeHome">Go back to Trainee Home Page</a>
+
 </body>
 </html>

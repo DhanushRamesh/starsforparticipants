@@ -149,14 +149,14 @@ nav li:last-child a:after {
 }
 </style>
 </head>
-<body>
+<body style="background-color:powderblue;">
 	<c:set var="context" value="${pageContext.request.contextPath}"></c:set>
 	<h2>Trainee Home Page</h2>
 	<nav>
 	<ul>
 	<li><a href="${context}/raiseRequest">Raise Request</a></li>
 	<li><a href="${context}/rateTrainer">Rate Trainer</a></li>
-	<li><a href="${context}/notification">Notification</a></li>
+	<li><a href="${context}/notifyTrainee">Notification</a></li>
 	<li><a href="${context}/logout">Log out</a></li>
 	</ul>
 	</nav>

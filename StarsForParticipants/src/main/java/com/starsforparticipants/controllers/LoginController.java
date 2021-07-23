@@ -29,7 +29,17 @@ public class LoginController {
 		 model.addAttribute("loginModal", new LoginModal());
 	      return "traineeHome";
 }
-	
+
+	@RequestMapping("/trainerHome")
+	public String trainerHome(ModelMap model) {
+		 model.addAttribute("loginModal", new LoginModal());
+	      return "trainerHome";
+}
+	@RequestMapping("/adminHome")
+	public String adminHome(ModelMap model) {
+		 model.addAttribute("loginModal", new LoginModal());
+	      return "adminHome";
+}
 	
 	@RequestMapping("/login")
 	public String login(HttpServletRequest request,  ModelMap model, @ModelAttribute("loginModal") LoginModal loginData) {

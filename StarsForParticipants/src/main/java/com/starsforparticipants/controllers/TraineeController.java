@@ -56,5 +56,15 @@ public class TraineeController {
 		}
 		return forward;
 	}
+	
+	@RequestMapping("/notifyTrainee")
+	public String notifyTrainer(ModelMap model, HttpServletRequest request) {
+		
+		UserModal activeUser = (UserModal) request.getSession().getAttribute("activeUser");
+		List<UserModal> trainees = traineeService.getAssignedTrainees(activeUser);
+		model.addAttribute("trainees", trainees);
+		return "traineenotification";
+		
+	}
 
 }

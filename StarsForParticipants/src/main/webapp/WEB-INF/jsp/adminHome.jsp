@@ -106,7 +106,7 @@ src: local('Lato Bold'), local('Lato-Bold'), url(http://themes.googleusercontent
 }
   </style>
 </head>
-<body>
+<body style="background-image: url(https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80); background-repeat: no-repeat;  background-size: cover;">
 <c:set var="context" value="${pageContext.request.contextPath}"></c:set>
 <h2>Admin Home Page</h2>
 <nav>
@@ -115,7 +115,7 @@ src: local('Lato Bold'), local('Lato-Bold'), url(http://themes.googleusercontent
       <li><a href="${context}/listRequests">List of Requests</a></li>
       <li><a href="/GenerateReport.html">Generate Report</a></li>
       <li><a href="${context}/showNominatedUsers">Nominated Trainers</a></li>
-      <li><a href="/">Log out</a></li>
+      <li><a href="${context}/logout">Log out</a></li>
    </ul>
 </nav>
 </body>

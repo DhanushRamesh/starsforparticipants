@@ -57,7 +57,7 @@ public class AdminController {
 	
 	@RequestMapping("/createCourseRequest")
 	public String createCourseRequest(HttpServletRequest request, ModelMap map) {
-		int traineeId = Integer.parseInt(request.getParameter("traineeId"));
+oca		int traineeId = Integer.parseInt(request.getParameter("traineeId"));
 		String userid = request.getParameter("selectedTrainer");
 		adminService.createCourseRequest(traineeId,userid);
 		return "viewRequest";

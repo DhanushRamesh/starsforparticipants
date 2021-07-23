@@ -24,11 +24,17 @@ public class DataBaseQueries {
 
 	public static final String GET_TRAINER_SUGGESTIONS = "select r.firstname as firstname, r.userid as userid from registeration r join skillset s on r.id = s.trainerid where r.location = ? and r.availability = ? and s.skillset = ?";
 	
-	public static final String CREATE_REQUEST = "insert into admin_request(requestId, trainerId) values((select recordId from raise_request where id = ? ),(select id from registeration where userid = ?))";
+	public static final String CREATE_REQUEST = "insert into admin_request(requestId, trainerId, isnominated) values((select recordId from raise_request where id = ? ),(select id from registeration where userid = ?),'N')";
 	
 	public static final String GET_TRAINEE_REQUESTS = "select id,subject,location,timing from raise_request where recordId in (select requestId from admin_request where trainerId = ? )";
 	
 	public static final String UPDATE_ADMIN_REQUEST = "update admin_request set isnominated = 'Y' where trainerId = ? ";
 	
 	public static final String GET_NOMINATIONS = "select distinct ar.trainerId as trainerId,  r.firstname as trainername, rr.id as traineeId ,reg.firstname as traineename  from admin_request ar join registeration r on ar.trainerId = r.id join raise_request rr on rr.recordId = ar.requestId join registeration reg on reg.id = rr.id where ar.isnominated = 'Y'";
+	
+	public static final String COMFIRM_REQUESTS = "insert into confirmed_request(trainer_id,trainee_id)values(?,?)";
+	
+	public static final String GET_ASSIGNED_TRAINEES = "select cr.trainee_id as id ,r.firstname as firstname from confirmed_request cr join registeration r on r.id = cr.trainee_id where cr.trainer_id = ?";
+	
+	public static final String GET_ASSIGNED_TRAINERS = "select cr.trainer_id as id ,r.firstname as firstname from confirmed_request cr join registeration r on r.id = cr.trainer_id where cr.trainee_id = ?";
 }

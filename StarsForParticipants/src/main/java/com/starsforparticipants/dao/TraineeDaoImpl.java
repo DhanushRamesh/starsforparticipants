@@ -5,10 +5,13 @@ import static com.starsforparticipants.dao.DataBaseQueries.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
 import com.starsforparticipants.models.CourseRequestModel;
+import com.starsforparticipants.models.UserModal;
 import com.starsforparticipants.utils.DBUtils;
 
 
@@ -55,5 +58,31 @@ public class TraineeDaoImpl extends DBUtils implements TraineeDao{
 			}
 			return hasCourseRequested;
 	}
+
+	@Override
+	public List<UserModal> getAssignedTrainees(UserModal activeUser) {
+		
+		List<UserModal> traineeList = new ArrayList<>();
+		
+		try(PreparedStatement stmt = getConnection().prepareStatement(GET_ASSIGNED_TRAINERS)){
+			
+			stmt.setInt(1, activeUser.getId());
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				UserModal trainee = new UserModal();
+				trainee.setId(rs.getInt("id"));
+				trainee.setFirstName(rs.getString("firstname"));
+				traineeList.add(trainee);
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return traineeList;
+	}
+
 
 }

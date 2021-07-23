@@ -15,7 +15,10 @@ margin: 0px;
 padding: 0px;
 background: #86beece7;
 font-family: 'Lato', sans-serif;
-background: url("https://unsplash.com/photos/5fNmWej4tAA");
+background-image: url("https://unsplash.com/photos/5fNmWej4tAA");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
 }
 h2{
    text-align: center;
@@ -107,7 +110,7 @@ font-weight: 700;
 src: local('Lato Bold'), local('Lato-Bold'), url(http://themes.googleusercontent.com/static/fonts/lato/v6/wkfQbvfT_02e2IWO3yYueQ.woff) format('woff');
 }
   </style>
-<body>
+<body style="background-color:powderblue;">
 <c:set var="context" value="${pageContext.request.contextPath}"></c:set>
 <h2>Trainer Home Page</h2>
 <nav>
@@ -115,8 +118,8 @@ src: local('Lato Bold'), local('Lato-Bold'), url(http://themes.googleusercontent
       <li><a href="/TrainerDetails.html">Profile</a></li>
       <li><a href="${context}/showTraineeRequests">List of Requests</a></li>
       <li><a href="/GenerateReport.html">Rate Trainee</a></li>
-      <li><a href="/GenerateReport.html">Notification</a></li>
-      <li><a href="/">Log out</a></li>
+      <li><a href="${context}/notifyTrainer">Notification</a></li>
+      <li><a href="${context}/logout">Log out</a></li>
     </ul>
     </nav>
 </body>

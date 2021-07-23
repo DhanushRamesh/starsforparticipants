@@ -138,6 +138,7 @@ a {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
+
 <c:set var="context" value="${pageContext.request.contextPath}"></c:set>
  
 <form:form method = "POST" action = "${context}/login" modelAttribute="loginModal" class="login">

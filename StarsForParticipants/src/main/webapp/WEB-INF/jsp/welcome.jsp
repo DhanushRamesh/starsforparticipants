@@ -426,7 +426,8 @@
 
 
 
-    <li><a href="#">About Us</a></li>
+    <li><a href="${context}/aboutUs"> About Us </a>
+</li>
 
   </ul>
 
